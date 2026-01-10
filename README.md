@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# 💎 Smart Wallet - محفظتي الذكية 🚀
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Smart Wallet** هو تطبيق مالي احترافي مبني باستخدام **React** و **Tailwind CSS**، مصمم ليمنحك تجربة إدارة مالية فاخرة (Premium) بلمسة عصرية وتفاعلية.
 
-## Available Scripts
+![Version](https://img.shields.io/badge/version-1.0.0-cyan)
+![React](https://img.shields.io/badge/built%20with-React-61dafb)
+![Tailwind](https://img.shields.io/badge/styling-Tailwind--CSS-38b2ac)
+![Status](https://img.shields.io/badge/status-active-emerald)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## ✨ المميزات الأسطورية (Key Features)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 📊 تحليلات ذكية (Smart Analytics)
+*   **نظرة تحليلية متقدمة**: رسم بياني تفاعلي (Area Chart) يعرض آخر 10 عمليات بمنحنى ضوئي (Glow) وتدرجات لونية فاخرة.
+*   **Smart Tooltip**: نافذة معلومات زجاجية تظهر تفاصيل كل عملية بدقة متناهية عند التمرير.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 🩺 مؤشر الصحة المالية (Financial Health Score)
+*   نظام ذكي لتقييم وضعك المالي بصيغة رقمية (من 0 إلى 100) يعطيك نصائح فورية بناءً على نسبة صرفك من دخلك.
 
-### `npm test`
+### 🎯 أهداف الادخار مع نظام الاحتفال
+*   إضافة أهداف مالية ومتابعة تقدمها بشريط تفاعلي.
+*   **نظام الاحتفال (Confetti)**: عند تحقيق الهدف 100%، تنطلق ألعاب نارية احتفالاً بإنجازك!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 📝 سجل العمليات المنظم
+*   تجميع العمليات تلقائياً حسب التاريخ (اليوم، أمس، التواريخ السابقة).
+*   ملخص يومي (إجمالي دخل ومصروف) لكل تاريخ بشكل منفصل.
 
-### `npm run build`
+### 📄 تصدير تقارير PDF
+*   توليد تقارير مالية رسمية جاهزة للطباعة بلمسة زر، بتنسيق عالمي يدعم الوصف والفئات والمبالغ.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 📱 تصميم متجاوب (Mobile Friendly)
+*   واجهة متكاملة تتحول لتطبيق هاتف ذكي عند فتحها من الجوال، مع أزرار لمسية سهلة ونوافذ منبثقة انسيابية.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🛠️ التقنيات المستخدمة (Tech Stack)
 
-### `npm run eject`
+*   **Frontend**: React.js
+*   **Styling**: Tailwind CSS (Glassmorphism UI)
+*   **Animations**: Framer Motion
+*   **Charts**: Recharts
+*   **Icons**: Lucide React
+*   **Notifications**: React Hot Toast
+*   **PDF Generation**: jsPDF & jsPDF-AutoTable
+*   **Celebration**: Canvas Confetti
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🚀 كيف تبدأ؟ (Installation)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1.  **قم بتحميل المشروع**:
+    ```bash
+    git clone https://github.com/YOUR_USERNAME/expense-tracker.git
+    cd expense-tracker
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2.  **تثبيت المكتبات**:
+    ```bash
+    npm install
+    ```
 
-## Learn More
+3.  **تشغيل التطبيق**:
+    ```bash
+    npm start
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## 🔒 الخصوصية والأمان
+يعمل التطبيق بالكامل على **المستعرض المحلي (Local Storage)**، مما يعني أن بياناتك المالية تظل محفوظة في جهازك فقط ولا يتم رفعها لأي خادم للحفاظ على خصوصيتك المطلقة.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 🤝 المساهمة
+المساهمات مرحب بها دائماً! لا تتردد في فتح (Issue) أو إرسال (Pull Request).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**تم التطوير بكل ❤️ ليكون رفيقك المالي الذكي.**
