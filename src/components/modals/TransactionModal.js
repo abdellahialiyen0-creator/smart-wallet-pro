@@ -11,10 +11,8 @@ import { CATEGORIES } from '../../constants/categories';
 const TransactionModal = React.memo(() => {
     const {
         showModal, setShowModal, editingId, newTransaction,
-        setNewTransaction, saveTransaction, theme
+        setNewTransaction, saveTransaction
     } = useApp();
-
-    const isDark = theme === 'dark';
 
     if (!showModal) return null;
 
@@ -38,7 +36,7 @@ const TransactionModal = React.memo(() => {
                 style={{ backgroundColor: 'var(--app-card)', borderColor: 'var(--app-border)' }}
             >
                 {/* الرأس */}
-                <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/50 flex-shrink-0" style={{ backgroundColor: isDark ? '#1e293b' : '#f8fafc', borderColor: 'var(--app-border)' }}>
+                <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/50 flex-shrink-0" style={{ backgroundColor: 'rgba(var(--app-card-rgb), 0.5)', borderColor: 'var(--app-border)' }}>
                     <h3 className="text-base md:text-lg font-bold" style={{ color: 'var(--app-text)' }}>
                         {editingId ? 'تعديل المعاملة المالية' : 'تسجيل معاملة جديدة'}
                     </h3>
@@ -53,7 +51,7 @@ const TransactionModal = React.memo(() => {
 
                 <div className="p-5 md:p-8 space-y-5 md:space-y-6 overflow-y-auto custom-scrollbar">
                     {/* تبديل نوع العملية */}
-                    <div className="flex bg-slate-100 p-1 rounded-xl border border-slate-200 flex-shrink-0" style={{ backgroundColor: isDark ? '#0f172a' : '#f1f5f9', borderColor: 'var(--app-border)' }}>
+                    <div className="flex bg-slate-100 p-1 rounded-xl border border-slate-200 flex-shrink-0" style={{ backgroundColor: 'var(--app-input)', borderColor: 'var(--app-border)' }}>
                         <button
                             onClick={() => setNewTransaction({ ...newTransaction, type: 'expense', category: 'food' })}
                             className={`flex-1 py-2 md:py-2.5 rounded-lg font-bold transition-all flex items-center justify-center gap-2 text-xs md:text-sm ${newTransaction.type === 'expense'
@@ -61,8 +59,8 @@ const TransactionModal = React.memo(() => {
                                 : 'text-slate-500'
                                 }`}
                             style={{
-                                backgroundColor: newTransaction.type === 'expense' ? (isDark ? '#1e293b' : '#fff') : 'transparent',
-                                color: newTransaction.type === 'expense' ? '#ef4444' : (isDark ? '#64748b' : '#94a3b8')
+                                backgroundColor: newTransaction.type === 'expense' ? 'var(--app-card)' : 'transparent',
+                                color: newTransaction.type === 'expense' ? '#ef4444' : 'var(--app-muted)'
                             }}
                         >
                             <TrendingDown className="w-4 h-4" /> مصروف
@@ -74,8 +72,8 @@ const TransactionModal = React.memo(() => {
                                 : 'text-slate-500'
                                 }`}
                             style={{
-                                backgroundColor: newTransaction.type === 'income' ? (isDark ? '#1e293b' : '#fff') : 'transparent',
-                                color: newTransaction.type === 'income' ? '#10b981' : (isDark ? '#64748b' : '#94a3b8')
+                                backgroundColor: newTransaction.type === 'income' ? 'var(--app-card)' : 'transparent',
+                                color: newTransaction.type === 'income' ? '#10b981' : 'var(--app-muted)'
                             }}
                         >
                             <TrendingUp className="w-4 h-4" /> دخل
@@ -95,7 +93,7 @@ const TransactionModal = React.memo(() => {
                                 onChange={e => setNewTransaction({ ...newTransaction, amount: e.target.value })}
                                 className="w-full border p-3 md:p-3.5 rounded-xl font-bold text-xl md:text-2xl outline-none transition-all"
                                 style={{
-                                    backgroundColor: isDark ? '#0f172a' : '#f8fafc',
+                                    backgroundColor: 'var(--app-input)',
                                     borderColor: 'var(--app-border)',
                                     color: 'var(--app-text)'
                                 }}
@@ -113,7 +111,7 @@ const TransactionModal = React.memo(() => {
                                     onChange={e => setNewTransaction({ ...newTransaction, category: e.target.value })}
                                     className="w-full border p-3 md:p-3.5 rounded-xl font-bold outline-none text-xs md:text-sm appearance-none cursor-pointer transition-all"
                                     style={{
-                                        backgroundColor: isDark ? '#0f172a' : '#f8fafc',
+                                        backgroundColor: 'var(--app-input)',
                                         borderColor: 'var(--app-border)',
                                         color: 'var(--app-text)'
                                     }}
@@ -136,7 +134,7 @@ const TransactionModal = React.memo(() => {
                             onChange={e => setNewTransaction({ ...newTransaction, recurring: e.target.value })}
                             className="w-full border p-3 md:p-3.5 rounded-xl font-bold outline-none text-[11px] md:text-xs transition-all cursor-pointer"
                             style={{
-                                backgroundColor: isDark ? '#1e293b' : '#f8fafc',
+                                backgroundColor: 'var(--app-input)',
                                 borderColor: 'var(--app-border)',
                                 color: 'var(--app-text)'
                             }}
@@ -161,7 +159,7 @@ const TransactionModal = React.memo(() => {
                             onChange={e => setNewTransaction({ ...newTransaction, description: e.target.value })}
                             className="w-full border p-3 md:p-3.5 rounded-xl font-medium outline-none text-xs md:text-sm transition-all"
                             style={{
-                                backgroundColor: isDark ? '#0f172a' : '#f8fafc',
+                                backgroundColor: 'var(--app-input)',
                                 borderColor: 'var(--app-border)',
                                 color: 'var(--app-text)'
                             }}
@@ -180,7 +178,7 @@ const TransactionModal = React.memo(() => {
                                 onChange={e => setNewTransaction({ ...newTransaction, date: e.target.value })}
                                 className="w-full border p-3 md:p-3.5 rounded-xl font-bold outline-none text-xs md:text-sm transition-all"
                                 style={{
-                                    backgroundColor: isDark ? '#0f172a' : '#f8fafc',
+                                    backgroundColor: 'var(--app-input)',
                                     borderColor: 'var(--app-border)',
                                     color: 'var(--app-text)'
                                 }}

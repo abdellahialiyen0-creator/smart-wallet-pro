@@ -12,7 +12,7 @@ import { THEMES } from '../../constants/themes';
  */
 const KeyboardLegend = ({ isOpen, onClose, theme }) => {
     const currentTheme = THEMES[theme] || THEMES.corporate;
-    const isDark = theme === 'dark';
+    const isDark = currentTheme.isDark;
 
     const shortcuts = [
         { key: 'N', label: 'إضافة عملية جديدة', icon: <Plus className="w-4 h-4" /> },

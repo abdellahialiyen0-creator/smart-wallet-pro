@@ -251,8 +251,9 @@ const BudgetModal = React.memo(() => {
                                                     value={budgets[cat] || ''}
                                                     onChange={e => updateBudget(cat, e.target.value)}
                                                     placeholder="0"
-                                                    className="w-32 bg-white dark:bg-slate-800 border p-3 rounded-2xl text-center font-black text-xs focus:ring-4 focus:ring-blue-500/10 outline-none transition-all"
+                                                    className="w-32 border p-3 rounded-2xl text-center font-black text-xs focus:ring-4 focus:ring-blue-500/10 outline-none transition-all"
                                                     style={{
+                                                        backgroundColor: 'var(--app-input)',
                                                         borderColor: 'var(--app-border)',
                                                         color: 'var(--app-text)'
                                                     }}

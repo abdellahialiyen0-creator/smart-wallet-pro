@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { DollarSign, X, Wallet, TrendingUp } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { formatCurrency } from '../../utils/helpers';
-import { THEMES } from '../../constants/themes';
 
 /**
  * نافذة تخصيص الرصيد - تتبع ثيم التطبيق المختار
@@ -11,11 +10,8 @@ import { THEMES } from '../../constants/themes';
 const AllocationModal = React.memo(() => {
     const {
         allocationGoal, setAllocationGoal, allocateAmount,
-        setAllocateAmount, allocateToGoal, stats, currency, theme
+        setAllocateAmount, allocateToGoal, stats, currency
     } = useApp();
-
-    const currentTheme = THEMES[theme] || THEMES.corporate;
-    const isDark = currentTheme.isDark;
 
     if (!allocationGoal) return null;
 
@@ -81,7 +77,7 @@ const AllocationModal = React.memo(() => {
                                 onChange={e => setAllocateAmount(e.target.value)}
                                 className="w-full border px-12 py-5 rounded-xl font-black text-3xl outline-none transition-all text-center placeholder:opacity-20 shadow-inner"
                                 style={{
-                                    backgroundColor: isDark ? 'rgba(var(--app-bg-rgb, 15, 23, 42), 0.5)' : 'rgba(248, 250, 252, 0.4)',
+                                    backgroundColor: 'var(--app-input)',
                                     borderColor: 'var(--app-border)',
                                     color: 'var(--app-text)'
                                 }}
@@ -92,7 +88,7 @@ const AllocationModal = React.memo(() => {
                         <div
                             className="flex items-center justify-between p-4 border rounded-xl transition-colors duration-500"
                             style={{
-                                backgroundColor: isDark ? 'rgba(var(--app-bg-rgb, 15, 23, 42), 0.4)' : 'rgba(248, 250, 252, 0.2)',
+                                backgroundColor: 'rgba(var(--app-input-rgb, var(--app-card-rgb)), 0.3)',
                                 borderColor: 'var(--app-border)'
                             }}
                         >

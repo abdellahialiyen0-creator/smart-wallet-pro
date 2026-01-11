@@ -84,12 +84,16 @@ function AppContent() {
         backgroundColor: 'var(--app-bg)',
         color: 'var(--app-text)',
         '--app-bg': currentTheme.bg,
+        '--app-bg-rgb': hexToRgb(currentTheme.bg),
         '--app-card': currentTheme.card,
+        '--app-card-rgb': hexToRgb(currentTheme.card),
         '--app-accent': currentTheme.accent,
         '--app-accent-rgb': hexToRgb(currentTheme.accent),
         '--app-text': currentTheme.text,
         '--app-muted': currentTheme.muted,
-        '--app-border': currentTheme.border
+        '--app-border': currentTheme.border,
+        '--app-input': isDark ? 'rgba(0, 0, 0, 0.2)' : '#f8fafc',
+        '--app-input-rgb': isDark ? '0, 0, 0' : '248, 250, 252'
       }}
     >
       <Toaster position="top-center" reverseOrder={false} />
@@ -165,6 +169,7 @@ function AppContent() {
         .text-slate-800, .text-slate-900 { color: var(--app-text) !important; }
         .text-slate-500, .text-slate-400 { color: var(--app-muted) !important; }
         .border-slate-100, .border-slate-200 { border-color: var(--app-border) !important; }
+        input::placeholder, select::placeholder, textarea::placeholder { color: var(--app-muted) !important; opacity: 0.5 !important; }
       `}</style>
     </div>
   );

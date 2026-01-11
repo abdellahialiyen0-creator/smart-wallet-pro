@@ -2,16 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { X, Target, Flag, DollarSign } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
-import { THEMES } from '../../constants/themes';
 
 /**
  * نافذة إضافة هدف ادخار جديد - تتبع ثيم التطبيق المختار
  */
 const GoalModal = React.memo(() => {
-    const { showGoalModal, setShowGoalModal, newGoal, setNewGoal, addGoal, theme } = useApp();
-
-    const currentTheme = THEMES[theme] || THEMES.corporate;
-    const isDark = currentTheme.isDark;
+    const { showGoalModal, setShowGoalModal, newGoal, setNewGoal, addGoal } = useApp();
 
     if (!showGoalModal) return null;
 
@@ -66,7 +62,7 @@ const GoalModal = React.memo(() => {
                                 onChange={e => setNewGoal({ ...newGoal, title: e.target.value })}
                                 className="w-full border p-3.5 rounded-xl font-bold outline-none transition-all text-sm"
                                 style={{
-                                    backgroundColor: isDark ? '#0f172a' : '#f8fafc',
+                                    backgroundColor: 'var(--app-input)',
                                     borderColor: 'var(--app-border)',
                                     color: 'var(--app-text)'
                                 }}
@@ -85,7 +81,7 @@ const GoalModal = React.memo(() => {
                                 onChange={e => setNewGoal({ ...newGoal, targetAmount: e.target.value })}
                                 className="w-full border p-4 rounded-xl font-bold text-2xl outline-none transition-all text-center"
                                 style={{
-                                    backgroundColor: isDark ? '#0f172a' : '#f8fafc',
+                                    backgroundColor: 'var(--app-input)',
                                     borderColor: 'var(--app-border)',
                                     color: 'var(--app-text)'
                                 }}

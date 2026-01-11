@@ -22,7 +22,7 @@ const Header = React.memo(() => {
     } = useApp();
 
     const currentTheme = THEMES[theme] || THEMES.corporate;
-    const isDark = theme === 'dark';
+    const isDark = currentTheme.isDark;
 
     // Extract RGB from hex for transparency
     const hexToRgb = (hex) => {
