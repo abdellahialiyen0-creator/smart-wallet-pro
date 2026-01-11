@@ -18,7 +18,22 @@ module.exports = {
                     800: '#075985',
                     900: '#0c4a6e',
                 },
+                corporate: {
+                    bg: '#f8fafc',
+                    card: '#ffffff',
+                    border: '#e2e8f0',
+                    text: '#0f172a',
+                    secondary: '#64748b',
+                    accent: '#2563eb', // Standard professional blue
+                }
             },
+            fontFamily: {
+                sans: ['Inter', 'system-ui', 'sans-serif'],
+                display: ['Outfit', 'sans-serif'],
+            },
+            boxShadow: {
+                'corporate': '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
+            }
         },
     },
     plugins: [],
