@@ -52,7 +52,7 @@
 
 1.  **تحميل المشروع**:
     ```bash
-    git clone https://github.com/YOUR_USERNAME/smart-wallet-pro.git
+    git clone https://github.com/abdellahialiyen0-creator/smart-wallet-pro.git
     cd smart-wallet-pro
     ```
 

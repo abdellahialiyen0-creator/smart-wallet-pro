@@ -212,9 +212,9 @@ const TransactionHistory = React.memo(() => {
                                             borderColor: 'var(--app-border)'
                                         }}
                                     >
-                                        <div className="flex items-center gap-4">
+                                        <div className="flex items-center gap-3 md:gap-4">
                                             {/* أيقونة الفئة */}
-                                            <div className="w-12 h-12 rounded-xl flex items-center justify-center text-xl shadow-sm transition-transform group-hover:scale-110"
+                                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl flex items-center justify-center text-lg md:text-xl shadow-sm transition-transform group-hover:scale-110 flex-shrink-0"
                                                 style={{
                                                     backgroundColor: isDark ? 'var(--app-card)' : '#fff',
                                                     borderColor: 'var(--app-border)',
@@ -222,20 +222,20 @@ const TransactionHistory = React.memo(() => {
                                                 }}>
                                                 {CATEGORIES[t.category]?.icon || '💰'}
                                             </div>
-                                            <div>
-                                                <div className="flex items-center gap-2">
-                                                    <h5 className="font-bold text-sm mb-0.5" style={{ color: 'var(--app-text)' }}>{t.description || CATEGORIES[t.category]?.name}</h5>
+                                            <div className="min-w-0">
+                                                <div className="flex items-center gap-1.5 md:gap-2">
+                                                    <h5 className="font-bold text-xs md:text-sm mb-0.5 truncate" style={{ color: 'var(--app-text)' }}>{t.description || CATEGORIES[t.category]?.name}</h5>
                                                     {((t.recurring && t.recurring !== 'none') || t.isRecurringInstance) && (
-                                                        <RefreshCcw className="w-3 h-3 text-blue-500 animate-[spin_4s_linear_infinite]" title="عملية مجدولة" />
+                                                        <RefreshCcw className="w-2.5 h-2.5 md:w-3 md:h-3 text-blue-500 animate-[spin_4s_linear_infinite]" title="عملية مجدولة" />
                                                     )}
                                                 </div>
                                                 <span
-                                                    className="text-[10px] font-bold flex items-center gap-1.5 uppercase tracking-wide opacity-80"
+                                                    className="text-[9px] md:text-[10px] font-bold flex items-center gap-1 md:gap-1.5 uppercase tracking-wide opacity-80"
                                                     style={{ color: 'var(--app-muted)' }}
                                                 >
                                                     {CATEGORIES[t.category]?.name}
                                                     {t.recurring && t.recurring !== 'none' && (
-                                                        <span className="px-1.5 py-0.5 bg-blue-50 text-blue-600 rounded-md text-[8px] border border-blue-100 dark:bg-blue-900/30 dark:text-blue-200 dark:border-blue-800">
+                                                        <span className="px-1 py-0.5 bg-blue-50 text-blue-600 rounded-md text-[7px] md:text-[8px] border border-blue-100 dark:bg-blue-900/30 dark:text-blue-200 dark:border-blue-800">
                                                             تكرار {t.recurring === 'monthly' ? 'شهري' : t.recurring === 'weekly' ? 'أسبوعي' : 'يومي'}
                                                         </span>
                                                     )}
@@ -243,26 +243,26 @@ const TransactionHistory = React.memo(() => {
                                             </div>
                                         </div>
 
-                                        <div className="flex items-center gap-5">
-                                            <span className={`text-[15px] font-black ${t.type === 'income' ? 'text-emerald-500' : ''}`} style={{ color: t.type === 'income' ? undefined : 'var(--app-text)' }}>
+                                        <div className="flex items-center gap-3 md:gap-5">
+                                            <span className={`text-sm md:text-[15px] font-black whitespace-nowrap ${t.type === 'income' ? 'text-emerald-500' : ''}`} style={{ color: t.type === 'income' ? undefined : 'var(--app-text)' }}>
                                                 {t.type === 'income' ? '+' : '-'}{formatCurrency(t.amount, currency)}
                                             </span>
 
-                                            {/* أزرار التحكم */}
-                                            <div className="flex gap-1.5 opacity-0 group-hover:opacity-100 transition-all translate-x-2 group-hover:translate-x-0">
+                                            {/* أزرار التحكم - ظاهرة دائماً على الموبايل */}
+                                            <div className="flex gap-1 md:opacity-0 group-hover:opacity-100 transition-all md:translate-x-2 group-hover:translate-x-0">
                                                 <button
                                                     onClick={() => handleEdit(t)}
-                                                    className="p-2 text-slate-400 hover:text-blue-500 hover:bg-blue-50 rounded-lg transition-colors"
+                                                    className="p-1.5 md:p-2 text-slate-400 hover:text-blue-500 hover:bg-blue-50 rounded-lg transition-colors"
                                                     title="تعديل"
                                                 >
-                                                    <Edit3 className="w-4 h-4" />
+                                                    <Edit3 className="w-3.5 h-3.5 md:w-4 md:h-4" />
                                                 </button>
                                                 <button
                                                     onClick={() => deleteTransaction(t.id)}
-                                                    className="p-2 text-slate-400 hover:text-rose-500 hover:bg-rose-50 rounded-lg transition-colors"
+                                                    className="p-1.5 md:p-2 text-slate-400 hover:text-rose-500 hover:bg-rose-50 rounded-lg transition-colors"
                                                     title="حذف"
                                                 >
-                                                    <Trash2 className="w-4 h-4" />
+                                                    <Trash2 className="w-3.5 h-3.5 md:w-4 md:h-4" />
                                                 </button>
                                             </div>
                                         </div>

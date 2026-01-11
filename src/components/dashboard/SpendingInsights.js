@@ -72,22 +72,21 @@ const SpendingInsights = React.memo(() => {
     return (
         <motion.div
             layout
-            className="bg-white border p-6 md:p-8 rounded-2xl shadow-sm relative overflow-hidden transition-colors duration-300 min-h-[620px] will-change-transform"
+            className="bg-white border p-4 md:p-8 rounded-2xl shadow-sm relative overflow-hidden transition-colors duration-300 min-h-[500px] md:min-h-[620px] will-change-transform"
             style={{ backgroundColor: 'var(--app-card)', borderColor: 'var(--app-border)' }}
         >
-            {/* رأس المكون والتبويبات - تم تحسين التنسيق ليكون متوازناً تماماً */}
-            <div className="flex flex-col items-center justify-center mb-10 gap-8">
+            {/* رأس المكون والتبويبات */}
+            <div className="flex flex-col items-center justify-center mb-6 md:mb-10 gap-4 md:gap-8">
                 <div className="text-center">
-                    <h3 className="text-2xl font-black flex items-center justify-center gap-3 mb-2" style={{ color: 'var(--app-text)' }}>
-                        <PieIcon className="w-6 h-6 text-rose-500" />
+                    <h3 className="text-xl md:text-2xl font-black flex items-center justify-center gap-2 mb-1" style={{ color: 'var(--app-text)' }}>
+                        <PieIcon className="w-5 h-5 md:w-6 md:h-6 text-rose-500" />
                         تحليلات المحفظة
                     </h3>
-                    <div className="h-1 w-12 bg-rose-500/20 rounded-full mx-auto mb-3"></div>
-                    <p className="text-[10px] text-slate-400 font-black uppercase tracking-[0.3em] opacity-60">نظرة شاملة على سلوكك المالي</p>
+                    <div className="h-1 w-8 bg-rose-500/20 rounded-full mx-auto mb-2 md:mb-3"></div>
+                    <p className="text-[8px] md:text-[10px] text-slate-400 font-black uppercase tracking-[0.2em] md:tracking-[0.3em] opacity-60 px-4">نظرة شاملة على سلوكك المالي</p>
                 </div>
 
-                <div className="flex bg-slate-100/30 dark:bg-slate-800/60 p-1.5 rounded-[20px] items-center backdrop-blur-xl border border-white/10 dark:border-slate-700/50 w-full max-w-[450px] shadow-2xl relative">
-                    {/* مؤشر خلفي متحرك للتاب النشط لإعطاء طابع احترافي */}
+                <div className="flex bg-slate-100/30 dark:bg-slate-800/60 p-1 md:p-1.5 rounded-xl md:rounded-[20px] items-center backdrop-blur-xl border border-white/10 dark:border-slate-700/50 w-full max-w-[450px] shadow-2xl relative">
                     {[
                         { id: 'stats', label: 'التوزيع', icon: PieIcon },
                         { id: 'forecast', label: 'الرادار', icon: Activity },
@@ -98,18 +97,18 @@ const SpendingInsights = React.memo(() => {
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id)}
-                                className={`flex-1 flex items-center justify-center gap-2.5 px-2 py-3 rounded-[14px] text-[11px] font-black transition-all duration-500 relative z-10 ${isActive
+                                className={`flex-1 flex items-center justify-center gap-1.5 md:gap-2.5 px-1 md:px-2 py-2.5 md:py-3 rounded-lg md:rounded-[14px] text-[9px] md:text-[11px] font-black transition-all duration-500 relative z-10 ${isActive
                                     ? 'shadow-xl scale-105'
                                     : 'hover:bg-slate-200/40 dark:hover:bg-slate-700/40 opacity-60 hover:opacity-100'
                                     }`}
                                 style={{
                                     backgroundColor: isActive ? 'var(--app-accent)' : 'transparent',
                                     color: isActive ? '#fff' : 'var(--app-text)',
-                                    boxShadow: isActive ? '0 10px 25px -5px rgba(var(--app-accent-rgb, 59, 130, 246), 0.4)' : 'none'
+                                    boxShadow: isActive ? '0 8px 20px -5px rgba(var(--app-accent-rgb, 59, 130, 246), 0.4)' : 'none'
                                 }}
                             >
-                                <tab.icon className={`w-4 h-4 transition-transform duration-500 ${isActive ? 'scale-110' : 'opacity-60'}`} />
-                                <span className={isActive ? 'opacity-100 translate-x-0' : 'opacity-70 translate-x-1'}>{tab.label}</span>
+                                <tab.icon className={`w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-500 ${isActive ? 'scale-110' : 'opacity-60'}`} />
+                                <span className={isActive ? 'opacity-100 translate-x-0' : 'opacity-70 translate-x-0.5'}>{tab.label}</span>
                             </button>
                         );
                     })}

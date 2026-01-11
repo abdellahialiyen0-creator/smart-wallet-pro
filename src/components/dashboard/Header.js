@@ -34,7 +34,7 @@ const Header = React.memo(() => {
 
     return (
         <header
-            className="flex flex-col md:flex-row justify-between items-center gap-6 border p-5 md:p-6 rounded-2xl shadow-sm transition-all duration-500"
+            className="flex flex-col md:flex-row justify-between items-center gap-6 border p-4 md:p-6 rounded-2xl shadow-sm transition-all duration-500 overflow-hidden"
             style={{
                 backgroundColor: 'var(--app-card)',
                 borderColor: 'var(--app-border)',
@@ -42,83 +42,83 @@ const Header = React.memo(() => {
             }}
         >
             {/* الشعار والهوية البصرية */}
-            <div className="flex items-center gap-4 w-full md:w-auto">
+            <div className="flex items-center gap-3 md:gap-4 w-full md:w-auto">
                 <motion.div
                     whileHover={{ scale: 1.05, rotate: 5 }}
-                    className="p-3.5 rounded-2xl shadow-xl transition-all duration-500"
+                    className="p-2.5 md:p-3.5 rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 flex-shrink-0"
                     style={{
                         backgroundColor: 'var(--app-accent)',
-                        boxShadow: `0 10px 20px -5px rgba(${accentRGB}, 0.4)`
+                        boxShadow: `0 8px 16px -4px rgba(${accentRGB}, 0.4)`
                     }}
                 >
-                    <Wallet className="w-7 h-7 text-white" />
+                    <Wallet className="w-5 h-5 md:w-7 md:h-7 text-white" />
                 </motion.div>
                 <div className="text-right">
-                    <h1 className="text-xl md:text-2xl font-black tracking-tight" style={{ color: 'var(--app-text)' }}>محفظتي الذكية</h1>
-                    <p className="text-slate-400 text-[10px] md:text-xs font-black uppercase tracking-widest flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: 'var(--app-accent)' }}></span>
+                    <h1 className="text-lg md:text-2xl font-black tracking-tight leading-none mb-1" style={{ color: 'var(--app-text)' }}>محفظتي الذكية</h1>
+                    <p className="text-slate-400 text-[9px] md:text-xs font-black uppercase tracking-widest flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: 'var(--app-accent)' }}></span>
                         الإصدار الاحترافي v2.0
                     </p>
                 </div>
             </div>
 
             {/* أدوات التحكم والإجراءات */}
-            <div className="flex flex-wrap items-center justify-center md:justify-end gap-3 w-full md:w-auto">
-                <div className="flex items-center gap-2.5">
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-2 md:gap-3 w-full md:w-auto">
+                <div className="flex items-center gap-1.5 md:gap-2.5">
                     {/* زر تصدير Excel */}
                     <button
                         onClick={() => exportCSV(transactions, currency)}
                         title="تصدير Excel / CSV"
-                        className="p-3 rounded-2xl border transition-all hover:scale-105 active:scale-95 group shadow-sm"
+                        className="p-2.5 md:p-3 rounded-xl md:rounded-2xl border transition-all hover:scale-105 active:scale-95 group shadow-sm"
                         style={{
                             backgroundColor: isDark ? '#1e293b' : '#f8fafc',
                             borderColor: 'var(--app-border)',
                             color: 'var(--app-muted)'
                         }}
                     >
-                        <FileSpreadsheet className="w-5 h-5 group-hover:text-emerald-500 transition-colors" />
+                        <FileSpreadsheet className="w-4 h-4 md:w-5 md:h-5 group-hover:text-emerald-500 transition-colors" />
                     </button>
 
                     {/* زر تصدير PDF */}
                     <button
                         onClick={() => exportPDF(transactions, currency)}
                         title="تصدير تقرير PDF"
-                        className="p-3 rounded-2xl border transition-all hover:scale-105 active:scale-95 group shadow-sm"
+                        className="p-2.5 md:p-3 rounded-xl md:rounded-2xl border transition-all hover:scale-105 active:scale-95 group shadow-sm"
                         style={{
                             backgroundColor: isDark ? '#1e293b' : '#f8fafc',
                             borderColor: 'var(--app-border)',
                             color: 'var(--app-muted)'
                         }}
                     >
-                        <FileText className="w-5 h-5 group-hover:text-rose-500 transition-colors" />
+                        <FileText className="w-4 h-4 md:w-5 md:h-5 group-hover:text-rose-500 transition-colors" />
                     </button>
 
                     {/* زر الأهداف */}
                     <button
                         onClick={() => setShowGoalModal(true)}
                         title="أهداف الادخار"
-                        className="p-3 rounded-2xl border transition-all hover:scale-105 active:scale-95 group shadow-sm"
+                        className="p-2.5 md:p-3 rounded-xl md:rounded-2xl border transition-all hover:scale-105 active:scale-95 group shadow-sm"
                         style={{
                             backgroundColor: isDark ? '#1e293b' : '#f8fafc',
                             borderColor: 'var(--app-border)',
                             color: 'var(--app-muted)'
                         }}
                     >
-                        <Target className="w-5 h-5 group-hover:text-blue-500 transition-colors" />
+                        <Target className="w-4 h-4 md:w-5 md:h-5 group-hover:text-blue-500 transition-colors" />
                     </button>
 
                     {/* زر الإعدادات */}
                     <button
                         onClick={() => setShowBudgetModal(true)}
                         title="الإعدادات والمظهر"
-                        className="p-3 rounded-2xl border transition-all hover:scale-105 active:scale-95 group shadow-sm"
+                        className="p-2.5 md:p-3 rounded-xl md:rounded-2xl border transition-all hover:scale-105 active:scale-95 group shadow-sm"
                         style={{
                             backgroundColor: isDark ? '#1e293b' : '#f8fafc',
                             borderColor: 'var(--app-border)',
                             color: 'var(--app-muted)'
                         }}
                     >
-                        <Settings className="w-5 h-5 group-hover:text-slate-900 dark:group-hover:text-white transition-colors" />
+                        <Settings className="w-4 h-4 md:w-5 md:h-5 group-hover:text-slate-900 dark:group-hover:text-white transition-colors" />
                     </button>
 
                     {/* زر اختصارات لوحة المفاتيح المكتشف حديثاً */}
@@ -148,13 +148,13 @@ const Header = React.memo(() => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => { resetForm(); setShowModal(true); }}
-                    className="flex items-center gap-2.5 px-6 py-3 text-white font-black rounded-2xl shadow-lg transition-all text-sm uppercase tracking-wide"
+                    className="flex items-center justify-center gap-2 px-4 md:px-6 py-3 md:py-3.5 text-white font-black rounded-xl md:rounded-2xl shadow-lg transition-all text-xs md:text-sm uppercase tracking-wide w-full sm:w-auto"
                     style={{
                         backgroundColor: 'var(--app-accent)',
                         boxShadow: `0 8px 16px -4px rgba(${accentRGB}, 0.4)`
                     }}
                 >
-                    <Plus className="w-5 h-5" />
+                    <Plus className="w-4 h-4 md:w-5 md:h-5" />
                     <span>عملية جديدة</span>
                 </motion.button>
             </div>
