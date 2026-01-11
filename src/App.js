@@ -162,7 +162,17 @@ function AppContent() {
         .custom-scrollbar::-webkit-scrollbar-thumb { background: ${isDark ? '#334155' : '#cbd5e1'}; border-radius: 10px; }
         .rtl { direction: rtl; }
         @media (max-width: 768px) {
+          html { font-size: 112%; }
           .custom-scrollbar::-webkit-scrollbar { width: 0px; }
+          /* تحسين رؤية الخطوط الصغيرة جداً لتطابق المعايير العالمية للموبايل */
+          .text-\\[8px\\], .text-\\[9px\\], .text-\\[10px\\], .text-xs { 
+            font-size: 12px !important;
+            letter-spacing: normal !important;
+            line-height: 1.4 !important;
+          }
+          .text-sm {
+            font-size: 14px !important;
+          }
         }
         /* إجبار المكونات على استخدام متغيرات الثيم */
         .bg-white, .card-bg { background-color: var(--app-card) !important; border-color: var(--app-border) !important; }
