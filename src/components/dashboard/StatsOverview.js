@@ -74,7 +74,7 @@ const StatsOverview = React.memo(() => {
                 <motion.div
                     key={i}
                     whileHover={{ scale: 1.02, y: -5 }}
-                    className="bg-white border p-4 md:p-6 rounded-xl shadow-sm relative overflow-hidden group transition-all duration-500 flex flex-col justify-between h-full min-h-[160px] md:min-h-[200px] lg:min-h-[230px] will-change-transform"
+                    className="bg-white border p-5 md:p-6 rounded-xl shadow-sm relative overflow-hidden group transition-all duration-500 flex flex-col justify-between h-full min-h-[190px] md:min-h-[200px] lg:min-h-[230px] will-change-transform"
                     style={{
                         backgroundColor: 'var(--app-card)',
                         borderColor: 'var(--app-border)'

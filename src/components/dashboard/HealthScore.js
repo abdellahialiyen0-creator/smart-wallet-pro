@@ -82,7 +82,7 @@ const HealthScore = React.memo(() => {
         <motion.div
             whileHover={{ y: -5 }}
             onClick={() => setShowComparison(!showComparison)}
-            className="lg:col-span-1 bg-white border p-6 rounded-2xl shadow-sm relative overflow-hidden group transition-all duration-500 cursor-pointer flex flex-col justify-between h-[230px] select-none will-change-transform"
+            className="lg:col-span-1 bg-white border p-5 md:p-6 rounded-2xl shadow-sm relative overflow-hidden group transition-all duration-500 cursor-pointer flex flex-col min-h-[280px] md:h-[230px] select-none will-change-transform"
             style={{
                 backgroundColor: 'var(--app-card)',
                 borderColor: 'var(--app-border)'
@@ -96,9 +96,9 @@ const HealthScore = React.memo(() => {
                 <ChevronRight className="w-5 h-5 text-slate-300" />
             </div>
 
-            <div className="relative z-10 flex flex-col h-full overflow-hidden">
+            <div className="relative z-10 flex flex-col h-full">
                 {/* العنوان والأيقونات الذكية */}
-                <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center justify-between mb-4 md:mb-2">
                     <div className="flex items-center gap-2">
                         <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">مؤشر الصحة المالية</h3>
                         <span className="bg-rose-500 text-white text-[7px] font-black px-1.5 py-0.5 rounded-full animate-pulse uppercase tracking-tighter">جديد</span>
@@ -108,7 +108,7 @@ const HealthScore = React.memo(() => {
                             <motion.div
                                 animate={{ x: [0, -5, 0] }}
                                 transition={{ repeat: Infinity, duration: 1.5 }}
-                                className="flex items-center gap-1 text-[9px] font-black text-blue-500 bg-blue-50/50 px-2 py-0.5 rounded-lg"
+                                className="hidden md:flex items-center gap-1 text-[9px] font-black text-blue-500 bg-blue-50/50 px-2 py-0.5 rounded-lg"
                             >
                                 <MousePointerClick className="w-2.5 h-2.5" />
                                 <span>انقر للمقارنة</span>
@@ -120,7 +120,7 @@ const HealthScore = React.memo(() => {
                     </div>
                 </div>
 
-                <div className="flex-1 relative">
+                <div className="flex-1 relative min-h-[160px]">
                     <AnimatePresence mode="wait">
                         {!showComparison ? (
                             <motion.div
@@ -129,14 +129,30 @@ const HealthScore = React.memo(() => {
                                 animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0, x: 30 }}
                                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                                className="flex flex-col items-center py-1 absolute inset-0"
+                                className="flex flex-col items-center justify-center py-2 absolute inset-0"
                             >
                                 {/* مؤشر الصحة المالية - تصميم احترافي نظيف */}
-                                <div className="relative w-24 h-24 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-500">
+                                <div className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-500">
                                     <svg className="w-full h-full transform -rotate-90 filter drop-shadow-lg">
                                         <circle
-                                            cx="48" cy="48" r="40"
+                                            cx="40" cy="40" r="34"
+                                            className="md:hidden"
                                             stroke={isDark ? '#1e293b' : '#f1f5f9'} strokeWidth="6" fill="transparent"
+                                        />
+                                        <circle
+                                            cx="48" cy="48" r="40"
+                                            className="hidden md:block"
+                                            stroke={isDark ? '#1e293b' : '#f1f5f9'} strokeWidth="6" fill="transparent"
+                                        />
+                                        <motion.circle
+                                            cx="40" cy="40" r="34"
+                                            stroke="currentColor" strokeWidth="8" fill="transparent"
+                                            strokeDasharray={213.6}
+                                            initial={{ strokeDashoffset: 213.6 }}
+                                            animate={{ strokeDashoffset: 213.6 - (213.6 * healthScore) / 100 }}
+                                            transition={{ duration: 1.5, ease: "easeOut" }}
+                                            strokeLinecap="round"
+                                            className={`md:hidden ${healthData.stroke}`}
                                         />
                                         <motion.circle
                                             cx="48" cy="48" r="40"
@@ -146,21 +162,21 @@ const HealthScore = React.memo(() => {
                                             animate={{ strokeDashoffset: 251.2 - (251.2 * healthScore) / 100 }}
                                             transition={{ duration: 1.5, ease: "easeOut" }}
                                             strokeLinecap="round"
-                                            className={`${healthData.stroke}`}
+                                            className={`hidden md:block ${healthData.stroke}`}
                                         />
                                     </svg>
                                     <div className="absolute flex flex-col items-center">
-                                        <span className={`text-2xl font-black tracking-tighter ${healthData.color}`}>{healthScore}</span>
+                                        <span className={`text-xl md:text-2xl font-black tracking-tighter ${healthData.color}`}>{healthScore}</span>
                                         <span className="text-[7px] text-slate-400 font-black uppercase tracking-widest">مجموع النقاط</span>
                                     </div>
                                 </div>
 
                                 <div className="text-center">
-                                    <span className={`inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[9px] font-black ${healthData.bg} ${healthData.color} mb-1.5 border border-current/10`}>
+                                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] font-black ${healthData.bg} ${healthData.color} mb-2 border border-current/10`}>
                                         <healthData.ic className="w-3 h-3" />
                                         {healthData.label}
                                     </span>
-                                    <p className="text-[9px] text-slate-400 font-bold leading-normal max-w-[150px] mx-auto italic">
+                                    <p className="text-[9px] text-slate-400 font-bold leading-normal max-w-[180px] mx-auto italic">
                                         "{healthData.msg}"
                                     </p>
                                 </div>
@@ -172,15 +188,15 @@ const HealthScore = React.memo(() => {
                                 animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0, x: -30 }}
                                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                                className="flex flex-col justify-center absolute inset-0 space-y-3"
+                                className="flex flex-col justify-center absolute inset-0 space-y-2 md:space-y-3 px-1"
                             >
-                                <div className="space-y-2.5">
+                                <div className="space-y-2.5 md:space-y-3">
                                     <h4 className="text-[10px] font-black text-slate-500 flex items-center gap-2">
                                         <TrendingUp className="w-3.5 h-3.5 text-blue-500" /> مقارنة الأداء الشهري
                                     </h4>
 
                                     {performance.hasData ? (
-                                        <div className={`p-2.5 rounded-xl border ${performance.isHigher ? 'bg-rose-50/30 border-rose-100' : 'bg-emerald-50/30 border-emerald-100'}`}>
+                                        <div className={`p-3 md:p-2.5 rounded-xl border ${performance.isHigher ? 'bg-rose-50/30 border-rose-100' : 'bg-emerald-50/30 border-emerald-100'}`}>
                                             <div className="flex items-center justify-between mb-1">
                                                 <span className="text-[9px] font-bold text-slate-500">معدل الانفاق اليومي</span>
                                                 <span className={`text-[10px] font-black flex items-center gap-1 ${performance.isHigher ? 'text-rose-500' : 'text-emerald-500'}`}>
@@ -195,13 +211,13 @@ const HealthScore = React.memo(() => {
                                             </p>
                                         </div>
                                     ) : (
-                                        <div className="p-2.5 rounded-xl border border-slate-100 bg-slate-50/50 text-center">
+                                        <div className="p-3 md:p-2.5 rounded-xl border border-slate-100 bg-slate-50/50 text-center">
                                             <Info className="w-4 h-4 mx-auto mb-1 text-slate-300" />
                                             <p className="text-[8px] text-slate-400 font-bold uppercase tracking-tighter">لا توجد بيانات للمقارنة</p>
                                         </div>
                                     )}
 
-                                    <div className="p-2.5 rounded-xl border border-blue-50 bg-blue-50/20">
+                                    <div className="p-3 md:p-2.5 rounded-xl border border-blue-50 bg-blue-50/20">
                                         <div className="flex items-center gap-2 mb-1">
                                             <Award className="w-3 h-3 text-blue-500" />
                                             <span className="text-[9px] font-black text-blue-600 uppercase">نصيحة ذكية</span>

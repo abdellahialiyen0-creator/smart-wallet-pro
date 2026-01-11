@@ -83,7 +83,7 @@ const SpendingInsights = React.memo(() => {
                         تحليلات المحفظة
                     </h3>
                     <div className="h-1 w-8 bg-rose-500/20 rounded-full mx-auto mb-2 md:mb-3"></div>
-                    <p className="text-[8px] md:text-[10px] text-slate-400 font-black uppercase tracking-[0.2em] md:tracking-[0.3em] opacity-60 px-4">نظرة شاملة على سلوكك المالي</p>
+                    <p className="text-[8px] md:text-[10px] text-slate-400 font-black uppercase tracking-widest md:tracking-[0.3em] opacity-60 px-4">نظرة شاملة على سلوكك المالي</p>
                 </div>
 
                 <div className="flex bg-slate-100/30 dark:bg-slate-800/60 p-1 md:p-1.5 rounded-xl md:rounded-[20px] items-center backdrop-blur-xl border border-white/10 dark:border-slate-700/50 w-full max-w-[450px] shadow-2xl relative">
